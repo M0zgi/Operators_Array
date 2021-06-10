@@ -85,8 +85,7 @@ bool MyArray::operator<(const MyArray& obj)
 }
 
 MyArray& MyArray::operator+(const MyArray& obj)
-{
-	
+{	
 	int tempsize = size + obj.size;
 
 	MyArray *temp = nullptr;
@@ -104,6 +103,115 @@ MyArray& MyArray::operator+(const MyArray& obj)
 	}
 
 	return *temp;
+}
+
+MyArray& MyArray::operator+(int n)
+{
+	int tempsize = size + 1;
+
+	MyArray* temp = nullptr;
+
+	temp = new MyArray(tempsize);
+
+	for (size_t i = 0; i < size; i++)
+	{
+		(*temp)[i] = array[i];
+	}
+
+	(*temp)[size] = n;
+
+
+	return *temp;
+}
+
+MyArray& MyArray::operator%(const MyArray& obj)
+{
+	int tempsize = size + obj.size;
+
+	int count = 0, countsize = 0;
+
+	MyArray* temp = nullptr;
+
+	temp = new MyArray(tempsize);
+
+	for (size_t i = 0; i < size; i++)
+	{
+		for (size_t j = 0; j < obj.size; j++)
+		{
+			if (array[i] != obj.array[j])
+			{
+				count++;
+			}
+
+			if (count == obj.size)
+			{
+				(*temp)[countsize] = array[i];
+				countsize++;
+			}
+		}
+
+		count = 0;
+	}
+
+	for (size_t i = 0; i < obj.size; i++)
+	{
+		for (size_t j = 0; j < size; j++)
+		{
+			if (obj.array[i] != array[j])
+			{
+				count++;
+			}
+
+			if (count == size)
+			{
+				(*temp)[countsize] = obj.array[i];
+				countsize++;
+			}
+		}
+
+		count = 0;
+	}
+
+	MyArray* result = nullptr;
+
+	result = new MyArray(countsize);
+
+	//получили массив с уникальными элементами
+	for (size_t i = 0; i < countsize; i++)
+	{
+		(*result)[i] = (*temp)[i];
+	}
+
+	////удаляем повторяющиеся элементы
+
+	//if (temp != nullptr)
+	//{
+	//	delete[]temp;
+	//}
+
+	//temp = new MyArray(countsize);
+
+	//for (size_t i = 0; i < countsize; i++)
+	//{
+	//	for (size_t j = 0; j < countsize - 1; j++)
+	//	{
+	//		if ((*result)[i] != (*result)[j + 1])
+	//		{
+	//			count++;
+	//		}
+	//	}
+	//	if (count == countsize)
+	//	{
+	//		(*temp)[i] = (*result)[i];
+	//		
+	//	}
+	//	
+	//	count = 0;
+
+	//}
+
+	return *result;
+
 }
 
 MyArray& MyArray::operator=(const MyArray& obj)

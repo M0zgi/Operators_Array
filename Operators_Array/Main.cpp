@@ -127,17 +127,40 @@ int main()
 	a.print();
 
 	cout << "Массив а1: ";
-	a1.print();
+	a1.print();	
 
-	//int sizea3 = (a.GetSize() + a1.GetSize());
-
-	MyArray a3(a.GetSize() + a1.GetSize());
-	
+	MyArray a3(a.GetSize() + a1.GetSize());	
 	a3 = a + a1;
 
 	cout << "Массив а3: ";
 	a3.print();
 
+	cout << "\n--------------------------------------\n";
+
+	cout << "Создание массива Array4 = а + 55 \n";
+	cout << "Массив а: ";
+	a.print();
+
+	MyArray a4(a.GetSize() + 1);
+	a4 = a + 55;
+
+	cout << "Массив а4: ";
+	a4.print();
+
+	cout << "\n--------------------------------------\n";
+
+	cout << "Создаем массив с уникальнми элементами двух массивов \n";
+	cout << "Массив а: ";
+	a.print();
+
+	cout << "Массив а2: ";
+	a1.print();
+
+	MyArray a5(a.GetSize() + a1.GetSize());
+	a5 = a % a1;
+
+	cout << "Массив а5: ";
+	a5.print();
 
 	cout << "\n--------------------------------------\n";
 	//перегрузка оператора присваивания

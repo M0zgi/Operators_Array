@@ -37,7 +37,13 @@ public:
 	//оператор Array + Array
 	MyArray & operator + (const MyArray& obj);
 
+	//оператор Array + int добавляет значение в конец массива
+	MyArray& operator + (int n);
 
+	//оператор Array % Array создаем массив с уникальнми элементами двух массивов
+	MyArray& operator % (const MyArray& obj);
+
+	
 	//оператор присваивания =
 	MyArray & operator = (const MyArray& obj);
 

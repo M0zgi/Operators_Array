@@ -84,6 +84,28 @@ bool MyArray::operator<(const MyArray& obj)
 	return sum1 < sum2;
 }
 
+MyArray& MyArray::operator+(const MyArray& obj)
+{
+	
+	int tempsize = size + obj.size;
+
+	MyArray *temp = nullptr;
+		
+	temp = new MyArray(tempsize);
+
+	for (size_t i = 0; i < size; i++)
+	{
+		(*temp)[i] = array[i];
+	}	
+
+	for (size_t i = 0; i < obj.size; i++)
+	{
+		(*temp)[size + i] = obj.array[i];
+	}
+
+	return *temp;
+}
+
 MyArray& MyArray::operator=(const MyArray& obj)
 {	
 	size = obj.size;
@@ -126,6 +148,11 @@ int MyArray::operator[](int index) const
 
 	else
 		return array[index];
+}
+
+int MyArray::GetSize()
+{
+	return size;
 }
 
 MyArray::~MyArray()

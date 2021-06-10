@@ -28,11 +28,15 @@ public:
 	//оператор неравенства !=
 	bool operator != (const MyArray& obj);
 
-	//оператор больше >
+	//оператор больше > сравнение происходит по сумме элементов массивов
 	bool operator > (const MyArray& obj);
 
-	//оператор меньше <
+	//оператор меньше < сравнение происходит по сумме элементов массивов
 	bool operator < (const MyArray& obj);
+
+	//оператор Array + Array
+	MyArray & operator + (const MyArray& obj);
+
 
 	//оператор присваивания =
 	MyArray & operator = (const MyArray& obj);
@@ -43,7 +47,8 @@ public:
 	//оператор изменения значения массива по индексу
 	int& operator [] (int index);
 
-
+	//геттеры
+	int GetSize();
 
 	//деструктор
 	~MyArray();

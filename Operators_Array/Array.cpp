@@ -58,6 +58,32 @@ bool MyArray::operator!=(const MyArray& obj)
 	}
 }
 
+bool MyArray::operator>(const MyArray& obj)
+{
+	int sum1 = 0, sum2 = 0;
+
+	for (size_t i = 0; i < size; i++)
+	{
+		sum1 += array[i];
+		sum2 += obj.array[i];
+	}
+
+	return sum1 > sum2;
+}
+
+bool MyArray::operator<(const MyArray& obj)
+{
+	int sum1 = 0, sum2 = 0;
+
+	for (size_t i = 0; i < size; i++)
+	{
+		sum1 += array[i];
+		sum2 += obj.array[i];
+	}
+
+	return sum1 < sum2;
+}
+
 MyArray& MyArray::operator=(const MyArray& obj)
 {	
 	size = obj.size;

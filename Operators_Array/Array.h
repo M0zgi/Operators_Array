@@ -28,10 +28,16 @@ public:
 	//оператор неравенства !=
 	bool operator != (const MyArray& obj);
 
+	//оператор больше >
+	bool operator > (const MyArray& obj);
+
+	//оператор меньше <
+	bool operator < (const MyArray& obj);
+
 	//оператор присваивания =
 	MyArray & operator = (const MyArray& obj);
 
-	//оператор получение значения массива по индексу
+	//оператор получение значения константного массива по индексу
 	int operator [] (int index) const;
 
 	//оператор изменения значения массива по индексу
